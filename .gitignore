@@ -1,0 +1,12 @@
+.env
+.venv/
+__pycache__/
+*.pyc
+data/
+providers.yaml
+mcp_servers.yaml
+.pytest_cache/
+dist/
+build/
+*.egg-info/
+node_modules/

@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "lumina"
+version = "0.1.0"
+description = "Python lumina over SnowLuma OneBot"
+requires-python = ">=3.12"
+dependencies = [
+    "openai>=1.0",
+    "httpx>=0.27",
+    "websockets>=12",
+    "pydantic>=2",
+    "pydantic-settings>=2",
+    "aiosqlite>=0.19",
+    "ddgs>=9.0",
+    "pyyaml>=6.0",
+    "fastapi>=0.110",
+    "uvicorn>=0.29",
+    "apscheduler>=3.10",
+    "sqlalchemy>=2.0",
+    "mcp>=1.0",
+    "tzdata>=2024.1",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "pytest-asyncio>=0.23"]
+
+[tool.setuptools.packages.find]
+include = ["lumina*"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"

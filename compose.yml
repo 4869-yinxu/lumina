@@ -1,0 +1,33 @@
+services:
+  lumina:
+    build: .
+    container_name: lumina
+    restart: unless-stopped
+    environment:
+      LUMINA_DEEPSEEK_API_KEY: ${LUMINA_DEEPSEEK_API_KEY}
+      LUMINA_DEEPSEEK_MODEL: ${LUMINA_DEEPSEEK_MODEL:-deepseek-flash}
+      LUMINA_SNOWLUMA_HTTP_URL: http://snowluma:3000/
+      LUMINA_SNOWLUMA_WS_URL: ws://snowluma:3001/
+      LUMINA_SNOWLUMA_HTTP_TOKEN: ${LUMINA_SNOWLUMA_HTTP_TOKEN:-}
+      LUMINA_SNOWLUMA_WS_TOKEN: ${LUMINA_SNOWLUMA_WS_TOKEN:-}
+      LUMINA_REVERSE_HOST: 0.0.0.0
+      LUMINA_REVERSE_PORT: 8080
+      LUMINA_ALLOW_RISKY: ${LUMINA_ALLOW_RISKY:-}
+      LUMINA_TAVILY_API_KEY: ${LUMINA_TAVILY_API_KEY:-}
+      LUMINA_ADMIN_PASSWORD: ${LUMINA_ADMIN_PASSWORD:-}
+      LUMINA_DB_PATH: /app/data/lumina.db
+    ports:
+      - "8081:8081"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    volumes:
+      - ./data:/app/data
+      - ./providers.yaml:/app/providers.yaml
+      - ./mcp_servers.yaml:/app/mcp_servers.yaml
+      - ./dashboard/dist:/app/dashboard/dist
+    networks:
+      - astrbot_botnet
+
+networks:
+  astrbot_botnet:
+    external: true

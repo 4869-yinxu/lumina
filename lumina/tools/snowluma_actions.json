@@ -1,0 +1,4171 @@
+{
+  "actions": [
+    {
+      "name": "_del_group_notice",
+      "category": "扩展",
+      "description": "删除群公告（fid 或 notice_id 二选一）",
+      "risk": "risky",
+      "params": [
+        {
+          "name": "group_id",
+          "type": "integer",
+          "description": "群号",
+          "required": true
+        },
+        {
+          "name": "fid",
+          "type": "string",
+          "description": "",
+          "required": false
+        },
+        {
+          "name": "notice_id",
+          "type": "string",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "_get_friend_dress",
+      "category": "扩展",
+      "description": "获取指定 QQ 号正在使用的个性装扮（挂件/名片/来电/输入状态等）",
+      "risk": "safe",
+      "params": [
+        {
+          "name": "user_id",
+          "type": "integer",
+          "description": "目标 QQ 号",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "_get_group_notice",
+      "category": "扩展",
+      "description": "获取群公告",
+      "risk": "safe",
+      "params": [
+        {
+          "name": "group_id",
+          "type": "integer",
+          "description": "群号",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "_get_model_show",
+      "category": "扩展",
+      "description": "获取机型展示（兼容 mock）",
+      "risk": "safe",
+      "params": [
+        {
+          "name": "model",
+          "type": "string",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "_mark_all_as_read",
+      "category": "扩展",
+      "description": "标记全部已读",
+      "risk": "safe",
+      "params": []
+    },
+    {
+      "name": "_send_group_notice",
+      "category": "扩展",
+      "description": "发送群公告（支持置顶、弹窗、新成员、群昵称引导与确认）",
+      "risk": "risky",
+      "params": [
+        {
+          "name": "group_id",
+          "type": "integer",
+          "description": "群号",
+          "required": true
+        },
+        {
+          "name": "content",
+          "type": "string",
+          "description": "公告正文",
+          "required": true
+        },
+        {
+          "name": "image",
+          "type": "string",
+          "description": "可选公告图片（本地路径、URL 或 base64）",
+          "required": false
+        },
+        {
+          "name": "pinned",
+          "type": "integer",
+          "description": "是否置顶：1=置顶，0=不置顶",
+          "required": false
+        },
+        {
+          "name": "type",
+          "type": "integer",
+          "description": "发布类型：1=普通公告，20=新成员公告；建议使用 send_to_new_members",
+          "required": false
+        },
+        {
+          "name": "send_to_new_members",
+          "type": "boolean",
+          "description": "是否在成员新加入群时发送（与 type=20 等价）",
+          "required": false
+        },
+        {
+          "name": "is_show_edit_card",
+          "type": "integer",
+          "description": "是否引导群成员修改群昵称：1=是，0=否",
+          "required": false
+        },
+        {
+          "name": "tip_window_type",
+          "type": "integer",
+          "description": "弹窗展示：0=开启弹窗，1=关闭弹窗（QQ 原始字段为反向语义）",
+          "required": false
+        },
+        {
+          "name": "confirm_required",
+          "type": "integer",
+          "description": "是否需要群成员确认收到：1=是，0=否",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "_set_model_show",
+      "category": "扩展",
+      "description": "设置机型展示（占位）",
+      "risk": "risky",
+      "params": []
+    },
+    {
+      "name": "get_word_slices",
+      "category": "扩展",
+      "description": "分词（未实现）",
+      "risk": "safe",
+      "params": []
+    },
+    {
+      "name": "add_custom_face",
+      "category": "扩展",
+      "description": "添加收藏表情",
+      "risk": "risky",
+      "params": [
+        {
+          "name": "file",
+          "type": "string",
+          "description": "",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "add_group_tag",
+      "category": "群管理",
+      "description": "向某个群分类添加资料标签",
+      "risk": "risky",
+      "params": [
+        {
+          "name": "group_class",
+          "type": "integer",
+          "description": "",
+          "required": true
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "bot_exit",
+      "category": "扩展",
+      "description": "退出机器人",
+      "risk": "forbidden",
+      "params": []
+    },
+    {
+      "name": "can_send_image",
+      "category": "信息",
+      "description": "can_send_image",
+      "risk": "safe",
+      "params": []
+    },
+    {
+      "name": "can_send_record",
+      "category": "信息",
+      "description": "can_send_record",
+      "risk": "safe",
+      "params": []
+    },
+    {
+      "name": "cancel_group_album_media_like",
+      "category": "群相册",
+      "description": "cancel_group_album_media_like",
+      "risk": "risky",
+      "params": [
+        {
+          "name": "group_id",
+          "type": "integer",
+          "description": "群号",
+          "required": true
+        },
+        {
+          "name": "album_id",
+          "type": "string",
+          "description": "",
+          "required": true
+        },
+        {
+          "name": "batch_id",
+          "type": "string",
+          "description": "",
+          "required": true
+        },
+        {
+          "name": "lloc",
+          "type": "string",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "cancel_group_todo",
+      "category": "扩展",
+      "description": "取消群待办",
+      "risk": "risky",
+      "params": [
+        {
+          "name": "group_id",
+          "type": "integer",
+          "description": "群号",
+          "required": true
+        },
+        {
+          "name": "message_id",
+          "type": "integer",
+          "description": "",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "check_url_safely",
+      "category": "扩展",
+      "description": "检查链接安全性",
+      "risk": "safe",
+      "params": []
+    },
+    {
+      "name": "clean_cache",
+      "category": "扩展",
+      "description": "清理缓存",
+      "risk": "risky",
+      "params": []
+    },
+    {
+      "name": "clean_stream_temp_file",
+      "category": "流式接口",
+      "description": "清理流式传输临时文件(仅清理 stream 上传/下载目录)",
+      "risk": "risky",
+      "params": []
+    },
+    {
+      "name": "click_inline_keyboard_button",
+      "category": "扩展",
+      "description": "点击内联键盘按钮",
+      "risk": "risky",
+      "params": [
+        {
+          "name": "group_id",
+          "type": "integer",
+          "description": "群号",
+          "required": true
+        },
+        {
+          "name": "bot_appid",
+          "type": "integer",
+          "description": "",
+          "required": true
+        },
+        {
+          "name": "msg_seq",
+          "type": "integer",
+          "description": "",
+          "required": true
+        },
+        {
+          "name": "button_id",
+          "type": "string",
+          "description": "",
+          "required": true
+        },
+        {
+          "name": "callback_data",
+          "type": "string",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "comment_qzone",
+      "category": "空间",
+      "description": "评论一条说说（QQ 空间，支持纯文字或带图；传 images 自动上传）",
+      "risk": "risky",
+      "params": [
+        {
+          "name": "tid",
+          "type": "string",
+          "description": "说说 tid",
+          "required": true
+        },
+        {
+          "name": "content",
+          "type": "string",
+          "description": "评论内容",
+          "required": true
+        },
+        {
+          "name": "target_uin",
+          "type": "integer",
+          "description": "说说所属 QQ 号，省略则为机器人自己",
+          "required": false
+        },
+        {
+          "name": "images",
+          "type": "array",
+          "description": "图片数组（可选），支持 file:// http:// base64://；自动上传",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "complete_group_todo",
+      "category": "扩展",
+      "description": "完成群待办",
+      "risk": "risky",
+      "params": [
+        {
+          "name": "group_id",
+          "type": "integer",
+          "description": "群号",
+          "required": true
+        },
+        {
+          "name": "message_id",
+          "type": "integer",
+          "description": "",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "create_collection",
+      "category": "扩展",
+      "description": "创建收藏（未实现）",
+      "risk": "risky",
+      "params": []
+    },
+    {
+      "name": "create_flash_task",
+      "category": "扩展",
+      "description": "创建闪传任务",
+      "risk": "risky",
+      "params": [
+        {
+          "name": "files",
+          "type": "string",
+          "description": "路径、{ file, name }，或它们的数组",
+          "required": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "required": false
+        },
+        {
+          "name": "thumb_path",
+          "type": "string",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "create_group_file_folder",
+      "category": "群文件",
+      "description": "创建群文件夹",
+      "risk": "risky",
+      "params": [
+        {
+          "name": "group_id",
+          "type": "integer",
+          "description": "群号",
+          "required": true
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "required": true
+        },
+        {
+          "name": "parent_id",
+          "type": "string",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "del_group_album_media",
+      "category": "群相册",
+      "description": "删除群相册图片或视频",
+      "risk": "risky",
+      "params": [
+        {
+          "name": "group_id",
+          "type": "integer",
+          "description": "群号",
+          "required": true
+        },
+        {
+          "name": "album_id",
+          "type": "string",
+          "description": "",
+          "required": true
+        },
+        {
+          "name": "lloc",
+          "type": "string",
+          "description": "图片长定位标识，或视频 id",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "delete_custom_face",
+      "category": "扩展",
+      "description": "删除收藏表情",
+      "risk": "risky",
+      "params": [
+        {
+          "name": "emoji_id",
+          "type": "string",
+          "description": "",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "delete_essence_msg",
+      "category": "扩展",
+      "description": "移除精华消息",
+      "risk": "risky",
+      "params": [
+        {
+          "name": "message_id",
+          "type": "integer",
+          "description": "",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "delete_flash_file",
+      "category": "扩展",
+      "description": "删除闪传文件",
+      "risk": "risky",
+      "params": [
+        {
+          "name": "fileset_id",
+          "type": "string",
+          "description": "",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "delete_friend",
+      "category": "好友",
+      "description": "删除好友",
+      "risk": "risky",
+      "params": [
+        {
+          "name": "user_id",
+          "type": "integer",
+          "description": "QQ 号",
+          "required": true
+        },
+        {
+          "name": "block",
+          "type": "boolean",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "delete_group_file",
+      "category": "群文件",
+      "description": "删除群文件",
+      "risk": "risky",
+      "params": [
+        {
+          "name": "group_id",
+          "type": "integer",
+          "description": "群号",
+          "required": true
+        },
+        {
+          "name": "file_id",
+          "type": "string",
+          "description": "",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "delete_group_file_folder",
+      "category": "群文件",
+      "description": "删除群文件夹",
+      "risk": "risky",
+      "params": [
+        {
+          "name": "group_id",
+          "type": "integer",
+          "description": "群号",
+          "required": true
+        },
+        {
+          "name": "folder_id",
+          "type": "string",
+          "description": "",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "delete_group_folder",
+      "category": "扩展",
+      "description": "删除群文件夹",
+      "risk": "risky",
+      "params": [
+        {
+          "name": "group_id",
+          "type": "integer",
+          "description": "群号",
+          "required": true
+        },
+        {
+          "name": "folder_id",
+          "type": "string",
+          "description": "",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "delete_group_tag",
+      "category": "群管理",
+      "description": "从某个群分类移除资料标签",
+      "risk": "risky",
+      "params": [
+        {
+          "name": "group_class",
+          "type": "integer",
+          "description": "",
+          "required": true
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "delete_msg",
+      "category": "消息",
+      "description": "撤回消息",
+      "risk": "risky",
+      "params": [
+        {
+          "name": "message_id",
+          "type": "integer",
+          "description": "",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "delete_qzone_msg",
+      "category": "空间",
+      "description": "删除一条说说（QQ 空间，按 tid）",
+      "risk": "risky",
+      "params": [
+        {
+          "name": "tid",
+          "type": "string",
+          "description": "说说 tid（来自 get_qzone_msg_list / send_qzone_msg）",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "do_group_album_comment",
+      "category": "群相册",
+      "description": "do_group_album_comment",
+      "risk": "risky",
+      "params": [
+        {
+          "name": "group_id",
+          "type": "integer",
+          "description": "群号",
+          "required": true
+        },
+        {
+          "name": "album_id",
+          "type": "string",
+          "description": "",
+          "required": true
+        },
+        {
+          "name": "lloc",
+          "type": "string",
+          "description": "",
+          "required": true
+        },
+        {
+          "name": "content",
+          "type": "string",
+          "description": "",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "download_file",
+      "category": "扩展",
+      "description": "下载文件（url 或 base64）到 data/downloads",
+      "risk": "risky",
+      "params": [
+        {
+          "name": "url",
+          "type": "string",
+          "description": "",
+          "required": false
+        },
+        {
+          "name": "base64",
+          "type": "string",
+          "description": "",
+          "required": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "required": false
+        },
+        {
+          "name": "headers",
+          "type": "string",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "download_file_image_stream",
+      "category": "流式接口",
+      "description": "以流式方式下载图片(缓存图片 id / URL / stream 目录本地文件)",
+      "risk": "risky",
+      "params": [
+        {
+          "name": "file",
+          "type": "string",
+          "description": "文件路径(限 stream 临时目录)/ http(s) URL",
+          "required": false
+        },
+        {
+          "name": "file_id",
+          "type": "string",
+          "description": "文件 ID(缓存的图片/语音 id)",
+          "required": false
+        },
+        {
+          "name": "chunk_size",
+          "type": "integer",
+          "description": "分块大小(字节,默认 64KB)",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "download_file_record_stream",
+      "category": "流式接口",
+      "description": "以流式方式下载语音(缓存语音 id / URL / stream 目录本地文件)",
+      "risk": "risky",
+      "params": [
+        {
+          "name": "file",
+          "type": "string",
+          "description": "文件路径(限 stream 临时目录)/ http(s) URL",
+          "required": false
+        },
+        {
+          "name": "file_id",
+          "type": "string",
+          "description": "文件 ID(缓存的图片/语音 id)",
+          "required": false
+        },
+        {
+          "name": "chunk_size",
+          "type": "integer",
+          "description": "分块大小(字节,默认 64KB)",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "download_file_stream",
+      "category": "流式接口",
+      "description": "以流式方式下载文件(stream 目录本地文件 / URL / 缓存媒体)",
+      "risk": "risky",
+      "params": [
+        {
+          "name": "file",
+          "type": "string",
+          "description": "文件路径(限 stream 临时目录)/ http(s) URL",
+          "required": false
+        },
+        {
+          "name": "file_id",
+          "type": "string",
+          "description": "文件 ID(缓存的图片/语音 id)",
+          "required": false
+        },
+        {
+          "name": "chunk_size",
+          "type": "integer",
+          "description": "分块大小(字节,默认 64KB)",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "download_fileset",
+      "category": "扩展",
+      "description": "解析闪传文件下载直链（不下载，由调用方实现下载）",
+      "risk": "risky",
+      "params": [
+        {
+          "name": "fileset_id",
+          "type": "string",
+          "description": "",
+          "required": true
+        },
+        {
+          "name": "file_name",
+          "type": "string",
+          "description": "",
+          "required": false
+        },
+        {
+          "name": "file_index",
+          "type": "number",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "fetch_custom_face",
+      "category": "扩展",
+      "description": "获取自定义表情",
+      "risk": "safe",
+      "params": [
+        {
+          "name": "count",
+          "type": "integer",
+          "description": "",
+          "required": false
+        },
+        {
+          "name": "return_type",
+          "type": "string",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "fetch_custom_face_detail",
+      "category": "扩展",
+      "description": "获取自定义表情详情",
+      "risk": "safe",
+      "params": [
+        {
+          "name": "count",
+          "type": "integer",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "fetch_emoji_like",
+      "category": "扩展",
+      "description": "获取表情回应用户（NapCat 分页）",
+      "risk": "safe",
+      "params": [
+        {
+          "name": "message_id",
+          "type": "integer",
+          "description": "",
+          "required": true
+        },
+        {
+          "name": "emojiId",
+          "type": "string",
+          "description": "",
+          "required": true
+        },
+        {
+          "name": "count",
+          "type": "integer",
+          "description": "",
+          "required": false
+        },
+        {
+          "name": "cookie",
+          "type": "string",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "fetch_face_entity",
+      "category": "系统表情",
+      "description": "按编号查询 QQ 系统表情",
+      "risk": "safe",
+      "params": [
+        {
+          "name": "face_id",
+          "type": "integer",
+          "description": "QQ 系统表情编号",
+          "required": true
+        },
+        {
+          "name": "refresh",
+          "type": "boolean",
+          "description": "是否强制从 QQ 刷新目录",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "fetch_ptt_text",
+      "category": "扩展",
+      "description": "获取语音转文字结果",
+      "risk": "safe",
+      "params": [
+        {
+          "name": "message_id",
+          "type": "integer",
+          "description": "",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "fetch_super_face_id",
+      "category": "系统表情",
+      "description": "判断 QQ 系统表情是否使用超级表情格式",
+      "risk": "safe",
+      "params": [
+        {
+          "name": "face_id",
+          "type": "integer",
+          "description": "QQ 系统表情编号",
+          "required": true
+        },
+        {
+          "name": "refresh",
+          "type": "boolean",
+          "description": "是否强制从 QQ 刷新目录",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "fetch_sys_faces",
+      "category": "系统表情",
+      "description": "获取 QQ 系统表情目录",
+      "risk": "safe",
+      "params": [
+        {
+          "name": "refresh",
+          "type": "boolean",
+          "description": "是否强制从 QQ 刷新目录",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "forward_friend_single_msg",
+      "category": "扩展",
+      "description": "转发单条消息给好友",
+      "risk": "risky",
+      "params": [
+        {
+          "name": "message_id",
+          "type": "integer",
+          "description": "",
+          "required": true
+        },
+        {
+          "name": "user_id",
+          "type": "integer",
+          "description": "",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "forward_group_single_msg",
+      "category": "扩展",
+      "description": "转发单条消息到群",
+      "risk": "risky",
+      "params": [
+        {
+          "name": "message_id",
+          "type": "integer",
+          "description": "",
+          "required": true
+        },
+        {
+          "name": "group_id",
+          "type": "integer",
+          "description": "",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "friend_poke",
+      "category": "扩展",
+      "description": "好友拍一拍",
+      "risk": "risky",
+      "params": [
+        {
+          "name": "user_id",
+          "type": "integer",
+          "description": "",
+          "required": true
+        },
+        {
+          "name": "target_id",
+          "type": "integer",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "get_ai_characters",
+      "category": "扩展",
+      "description": "获取 AI 语音角色",
+      "risk": "safe",
+      "params": [
+        {
+          "name": "group_id",
+          "type": "integer",
+          "description": "群号",
+          "required": true
+        },
+        {
+          "name": "chat_type",
+          "type": "integer",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "get_ai_record",
+      "category": "扩展",
+      "description": "生成 AI 语音",
+      "risk": "safe",
+      "params": [
+        {
+          "name": "group_id",
+          "type": "integer",
+          "description": "群号",
+          "required": true
+        },
+        {
+          "name": "character",
+          "type": "string",
+          "description": "",
+          "required": true
+        },
+        {
+          "name": "text",
+          "type": "string",
+          "description": "",
+          "required": true
+        },
+        {
+          "name": "chat_type",
+          "type": "integer",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "get_clientkey",
+      "category": "扩展",
+      "description": "获取 clientkey",
+      "risk": "forbidden",
+      "params": []
+    },
+    {
+      "name": "get_collection_list",
+      "category": "扩展",
+      "description": "获取收藏列表",
+      "risk": "safe",
+      "params": [
+        {
+          "name": "category",
+          "type": "integer",
+          "description": "收藏分类 ID；0 表示全部分类",
+          "required": false
+        },
+        {
+          "name": "count",
+          "type": "integer",
+          "description": "最多返回的收藏数量",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "get_cookies",
+      "category": "扩展",
+      "description": "获取 Cookies",
+      "risk": "forbidden",
+      "params": [
+        {
+          "name": "domain",
+          "type": "string",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "get_credentials",
+      "category": "扩展",
+      "description": "获取凭证",
+      "risk": "forbidden",
+      "params": [
+        {
+          "name": "domain",
+          "type": "string",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "get_csrf_token",
+      "category": "扩展",
+      "description": "获取 CSRF 令牌",
+      "risk": "forbidden",
+      "params": []
+    },
+    {
+      "name": "get_doubt_friends_add_request",
+      "category": "扩展",
+      "description": "获取可疑好友申请",
+      "risk": "safe",
+      "params": [
+        {
+          "name": "count",
+          "type": "integer",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "get_emoji_likes",
+      "category": "扩展",
+      "description": "获取表情回应用户",
+      "risk": "safe",
+      "params": [
+        {
+          "name": "message_id",
+          "type": "integer",
+          "description": "",
+          "required": true
+        },
+        {
+          "name": "emoji_id",
+          "type": "string",
+          "description": "",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "get_essence_msg_list",
+      "category": "扩展",
+      "description": "获取精华消息列表",
+      "risk": "safe",
+      "params": [
+        {
+          "name": "group_id",
+          "type": "integer",
+          "description": "群号",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "get_file",
+      "category": "扩展",
+      "description": "获取文件信息（仅图片/语音缓存；群文件请用 get_group_file_url）",
+      "risk": "safe",
+      "params": [
+        {
+          "name": "file_id",
+          "type": "string",
+          "description": "",
+          "required": false
+        },
+        {
+          "name": "file",
+          "type": "string",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "get_fileset_id",
+      "category": "扩展",
+      "description": "从 QQ 闪传分享码或官方分享链接获取 fileset_id",
+      "risk": "safe",
+      "params": [
+        {
+          "name": "share_code",
+          "type": "string",
+          "description": "QQ 闪传分享码，或 https://qfile.qq.com/q/... 官方分享链接",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "get_fileset_info",
+      "category": "扩展",
+      "description": "获取文件集信息",
+      "risk": "safe",
+      "params": [
+        {
+          "name": "fileset_id",
+          "type": "string",
+          "description": "",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "get_flash_file_list",
+      "category": "扩展",
+      "description": "获取闪传文件列表",
+      "risk": "safe",
+      "params": [
+        {
+          "name": "fileset_id",
+          "type": "string",
+          "description": "",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "get_flash_file_url",
+      "category": "扩展",
+      "description": "获取闪传文件链接",
+      "risk": "safe",
+      "params": [
+        {
+          "name": "fileset_id",
+          "type": "string",
+          "description": "",
+          "required": true
+        },
+        {
+          "name": "file_name",
+          "type": "string",
+          "description": "",
+          "required": false
+        },
+        {
+          "name": "file_index",
+          "type": "number",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "get_forward_msg",
+      "category": "扩展",
+      "description": "获取合并转发消息（id 或 message_id）",
+      "risk": "safe",
+      "params": [
+        {
+          "name": "id",
+          "type": "string",
+          "description": "",
+          "required": false
+        },
+        {
+          "name": "message_id",
+          "type": "string",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "get_friend_list",
+      "category": "好友",
+      "description": "获取好友列表",
+      "risk": "safe",
+      "params": []
+    },
+    {
+      "name": "get_friend_msg_history",
+      "category": "扩展",
+      "description": "获取好友消息历史（无锚点时从服务器获取最新双向记录）",
+      "risk": "safe",
+      "params": [
+        {
+          "name": "user_id",
+          "type": "integer",
+          "description": "",
+          "required": true
+        },
+        {
+          "name": "message_id",
+          "type": "integer",
+          "description": "",
+          "required": false
+        },
+        {
+          "name": "count",
+          "type": "integer",
+          "description": "无锚点时从 QQ 服务器获取最新双向历史；服务器或身份解析失败时动作失败，不返回不完整的本地缓存",
+          "required": false
+        },
+        {
+          "name": "reverse_order",
+          "type": "boolean",
+          "description": "仅在 message_id 非 0 时生效；true 返回锚点及更旧消息，false 返回锚点及更新消息",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "get_friends_with_category",
+      "category": "扩展",
+      "description": "获取分组好友列表",
+      "risk": "safe",
+      "params": []
+    },
+    {
+      "name": "get_group_admin_settings",
+      "category": "群管理",
+      "description": "获取群管理设置的当前值",
+      "risk": "safe",
+      "params": [
+        {
+          "name": "group_id",
+          "type": "integer",
+          "description": "群号",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "get_group_album_list",
+      "category": "群相册",
+      "description": "get_group_album_list",
+      "risk": "safe",
+      "params": [
+        {
+          "name": "group_id",
+          "type": "integer",
+          "description": "群号",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "get_group_album_media_list",
+      "category": "群相册",
+      "description": "get_group_album_media_list",
+      "risk": "safe",
+      "params": [
+        {
+          "name": "group_id",
+          "type": "integer",
+          "description": "群号",
+          "required": true
+        },
+        {
+          "name": "album_id",
+          "type": "string",
+          "description": "",
+          "required": true
+        },
+        {
+          "name": "attach_info",
+          "type": "string",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "get_group_at_all_remain",
+      "category": "扩展",
+      "description": "获取群 @全体成员 剩余次数",
+      "risk": "safe",
+      "params": [
+        {
+          "name": "group_id",
+          "type": "integer",
+          "description": "群号",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "get_group_detail_info",
+      "category": "扩展",
+      "description": "获取群详细信息",
+      "risk": "safe",
+      "params": [
+        {
+          "name": "group_id",
+          "type": "integer",
+          "description": "",
+          "required": true
+        },
+        {
+          "name": "no_cache",
+          "type": "boolean",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "get_group_file_system_info",
+      "category": "扩展",
+      "description": "获取群文件系统信息",
+      "risk": "safe",
+      "params": [
+        {
+          "name": "group_id",
+          "type": "integer",
+          "description": "群号",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "get_group_file_url",
+      "category": "群文件",
+      "description": "获取群文件下载链接",
+      "risk": "safe",
+      "params": [
+        {
+          "name": "group_id",
+          "type": "integer",
+          "description": "群号",
+          "required": true
+        },
+        {
+          "name": "file_id",
+          "type": "string",
+          "description": "",
+          "required": true
+        },
+        {
+          "name": "busid",
+          "type": "string",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "get_group_files_by_folder",
+      "category": "群文件",
+      "description": "获取群子目录文件列表",
+      "risk": "safe",
+      "params": [
+        {
+          "name": "group_id",
+          "type": "integer",
+          "description": "群号",
+          "required": true
+        },
+        {
+          "name": "folder_id",
+          "type": "string",
+          "description": "",
+          "required": false
+        },
+        {
+          "name": "folder",
+          "type": "string",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "get_group_honor_info",
+      "category": "群信息",
+      "description": "获取群荣誉信息",
+      "risk": "safe",
+      "params": [
+        {
+          "name": "group_id",
+          "type": "integer",
+          "description": "群号",
+          "required": true
+        },
+        {
+          "name": "type",
+          "type": "string",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "get_group_ignore_add_request",
+      "category": "扩展",
+      "description": "获取被忽略的入群请求（NapCat）",
+      "risk": "safe",
+      "params": []
+    },
+    {
+      "name": "get_group_ignored_notifies",
+      "category": "扩展",
+      "description": "获取被过滤的入群请求",
+      "risk": "safe",
+      "params": []
+    },
+    {
+      "name": "get_group_info",
+      "category": "群信息",
+      "description": "获取群信息",
+      "risk": "safe",
+      "params": [
+        {
+          "name": "group_id",
+          "type": "integer",
+          "description": "群号",
+          "required": true
+        },
+        {
+          "name": "no_cache",
+          "type": "boolean",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "get_group_info_ex",
+      "category": "扩展",
+      "description": "获取群信息（扩展）",
+      "risk": "safe",
+      "params": [
+        {
+          "name": "group_id",
+          "type": "integer",
+          "description": "",
+          "required": true
+        },
+        {
+          "name": "no_cache",
+          "type": "boolean",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "get_group_list",
+      "category": "群信息",
+      "description": "获取群列表",
+      "risk": "safe",
+      "params": [
+        {
+          "name": "no_cache",
+          "type": "boolean",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "get_group_member_info",
+      "category": "群信息",
+      "description": "获取群成员信息",
+      "risk": "safe",
+      "params": [
+        {
+          "name": "group_id",
+          "type": "integer",
+          "description": "群号",
+          "required": true
+        },
+        {
+          "name": "user_id",
+          "type": "integer",
+          "description": "QQ 号",
+          "required": true
+        },
+        {
+          "name": "no_cache",
+          "type": "boolean",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "get_group_member_list",
+      "category": "群信息",
+      "description": "获取群成员列表",
+      "risk": "safe",
+      "params": [
+        {
+          "name": "group_id",
+          "type": "integer",
+          "description": "群号",
+          "required": true
+        },
+        {
+          "name": "no_cache",
+          "type": "boolean",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "get_group_msg_history",
+      "category": "扩展",
+      "description": "获取群消息历史",
+      "risk": "safe",
+      "params": [
+        {
+          "name": "group_id",
+          "type": "integer",
+          "description": "群号",
+          "required": true
+        },
+        {
+          "name": "message_id",
+          "type": "integer",
+          "description": "",
+          "required": false
+        },
+        {
+          "name": "count",
+          "type": "integer",
+          "description": "",
+          "required": false
+        },
+        {
+          "name": "reverse_order",
+          "type": "boolean",
+          "description": "仅在 message_id 非 0 时生效；true 返回锚点及更旧消息，false 返回锚点及更新消息",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "get_group_root_files",
+      "category": "群文件",
+      "description": "获取群根目录文件列表",
+      "risk": "safe",
+      "params": [
+        {
+          "name": "group_id",
+          "type": "integer",
+          "description": "群号",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "get_group_shut_list",
+      "category": "扩展",
+      "description": "获取群禁言列表",
+      "risk": "safe",
+      "params": [
+        {
+          "name": "group_id",
+          "type": "integer",
+          "description": "群号",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "get_group_signed_list",
+      "category": "扩展",
+      "description": "获取群今日打卡列表",
+      "risk": "safe",
+      "params": [
+        {
+          "name": "group_id",
+          "type": "integer",
+          "description": "群号",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "get_group_system_msg",
+      "category": "群信息",
+      "description": "获取群系统消息",
+      "risk": "safe",
+      "params": [
+        {
+          "name": "group_id",
+          "type": "integer",
+          "description": "",
+          "required": false
+        },
+        {
+          "name": "only_pending",
+          "type": "boolean",
+          "description": "",
+          "required": false
+        },
+        {
+          "name": "count",
+          "type": "integer",
+          "description": "每个收件箱最多读取的记录数",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "get_group_tags",
+      "category": "群管理",
+      "description": "读取某个群分类下的资料标签",
+      "risk": "safe",
+      "params": [
+        {
+          "name": "group_class",
+          "type": "integer",
+          "description": "",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "get_group_todo_list",
+      "category": "扩展",
+      "description": "获取群待办列表",
+      "risk": "safe",
+      "params": [
+        {
+          "name": "group_id",
+          "type": "integer",
+          "description": "群号",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "get_image",
+      "category": "扩展",
+      "description": "获取图片信息",
+      "risk": "safe",
+      "params": [
+        {
+          "name": "file",
+          "type": "string",
+          "description": "",
+          "required": false
+        },
+        {
+          "name": "file_id",
+          "type": "string",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "get_login_info",
+      "category": "信息",
+      "description": "get_login_info",
+      "risk": "safe",
+      "params": []
+    },
+    {
+      "name": "get_mini_app_ark",
+      "category": "扩展",
+      "description": "获取小程序卡片 ark",
+      "risk": "safe",
+      "params": [
+        {
+          "name": "type",
+          "type": "string",
+          "description": "",
+          "required": false
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "description": "",
+          "required": false
+        },
+        {
+          "name": "desc",
+          "type": "string",
+          "description": "",
+          "required": false
+        },
+        {
+          "name": "picUrl",
+          "type": "string",
+          "description": "",
+          "required": false
+        },
+        {
+          "name": "pic_url",
+          "type": "string",
+          "description": "",
+          "required": false
+        },
+        {
+          "name": "jumpUrl",
+          "type": "string",
+          "description": "",
+          "required": false
+        },
+        {
+          "name": "jump_url",
+          "type": "string",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "get_msg",
+      "category": "消息",
+      "description": "获取消息",
+      "risk": "safe",
+      "params": [
+        {
+          "name": "message_id",
+          "type": "integer",
+          "description": "",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "get_msg_emoji_likes",
+      "category": "扩展",
+      "description": "获取一条消息的全部表情回应",
+      "risk": "safe",
+      "params": [
+        {
+          "name": "message_id",
+          "type": "integer",
+          "description": "",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "get_online_clients",
+      "category": "扩展",
+      "description": "获取在线客户端",
+      "risk": "safe",
+      "params": [
+        {
+          "name": "no_cache",
+          "type": "boolean",
+          "description": "是否强制刷新；QQ 当前仅暴露本地快照，true 会明确失败",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "get_private_file_url",
+      "category": "群文件",
+      "description": "获取私聊文件下载链接",
+      "risk": "safe",
+      "params": [
+        {
+          "name": "user_id",
+          "type": "integer",
+          "description": "",
+          "required": false
+        },
+        {
+          "name": "file_id",
+          "type": "string",
+          "description": "",
+          "required": true
+        },
+        {
+          "name": "file_hash",
+          "type": "string",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "get_profile_like",
+      "category": "扩展",
+      "description": "获取资料点赞",
+      "risk": "safe",
+      "params": [
+        {
+          "name": "user_id",
+          "type": "integer",
+          "description": "",
+          "required": false
+        },
+        {
+          "name": "start",
+          "type": "integer",
+          "description": "",
+          "required": false
+        },
+        {
+          "name": "count",
+          "type": "integer",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "get_qun_album_list",
+      "category": "群相册",
+      "description": "get_qun_album_list",
+      "risk": "safe",
+      "params": [
+        {
+          "name": "group_id",
+          "type": "integer",
+          "description": "群号",
+          "required": true
+        },
+        {
+          "name": "attach_info",
+          "type": "string",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "get_qzone_feeds",
+      "category": "空间",
+      "description": "获取 QQ 空间好友动态（feed）；page_num 仅首页可靠，深翻页需时间游标（暂未实现）",
+      "risk": "safe",
+      "params": [
+        {
+          "name": "page_num",
+          "type": "integer",
+          "description": "页码（1 起；仅首页可靠）",
+          "required": false
+        },
+        {
+          "name": "count",
+          "type": "integer",
+          "description": "本页数量",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "get_qzone_msg_list",
+      "category": "空间",
+      "description": "获取 QQ 空间说说列表（默认机器人自己的空间）",
+      "risk": "safe",
+      "params": [
+        {
+          "name": "target_uin",
+          "type": "integer",
+          "description": "目标 QQ 号，省略则取机器人自己",
+          "required": false
+        },
+        {
+          "name": "pos",
+          "type": "integer",
+          "description": "起始偏移",
+          "required": false
+        },
+        {
+          "name": "num",
+          "type": "integer",
+          "description": "本页数量",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "get_recent_contact",
+      "category": "扩展",
+      "description": "获取最近会话（占位）",
+      "risk": "safe",
+      "params": [
+        {
+          "name": "count",
+          "type": "integer",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "get_record",
+      "category": "扩展",
+      "description": "获取语音信息；传 out_format 则服务端转码并附带 base64",
+      "risk": "safe",
+      "params": [
+        {
+          "name": "file",
+          "type": "string",
+          "description": "",
+          "required": false
+        },
+        {
+          "name": "file_id",
+          "type": "string",
+          "description": "",
+          "required": false
+        },
+        {
+          "name": "out_format",
+          "type": "string",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "get_rkey",
+      "category": "扩展",
+      "description": "获取下载 rkey",
+      "risk": "forbidden",
+      "params": []
+    },
+    {
+      "name": "get_rkey_server",
+      "category": "扩展",
+      "description": "获取 rkey 服务器信息",
+      "risk": "forbidden",
+      "params": []
+    },
+    {
+      "name": "get_share_link",
+      "category": "扩展",
+      "description": "获取文件分享链接",
+      "risk": "safe",
+      "params": [
+        {
+          "name": "fileset_id",
+          "type": "string",
+          "description": "",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "get_status",
+      "category": "信息",
+      "description": "get_status",
+      "risk": "safe",
+      "params": []
+    },
+    {
+      "name": "get_stranger_info",
+      "category": "好友",
+      "description": "获取陌生人信息",
+      "risk": "safe",
+      "params": [
+        {
+          "name": "user_id",
+          "type": "integer",
+          "description": "QQ 号",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "get_unidirectional_friend_list",
+      "category": "扩展",
+      "description": "获取单向好友列表",
+      "risk": "safe",
+      "params": []
+    },
+    {
+      "name": "get_version_info",
+      "category": "信息",
+      "description": "get_version_info",
+      "risk": "safe",
+      "params": []
+    },
+    {
+      "name": "group_poke",
+      "category": "扩展",
+      "description": "群拍一拍",
+      "risk": "risky",
+      "params": [
+        {
+          "name": "group_id",
+          "type": "integer",
+          "description": "群号",
+          "required": true
+        },
+        {
+          "name": "user_id",
+          "type": "integer",
+          "description": "QQ 号",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "like_qzone",
+      "category": "空间",
+      "description": "给一条说说点赞（QQ 空间）",
+      "risk": "risky",
+      "params": [
+        {
+          "name": "tid",
+          "type": "string",
+          "description": "说说 tid",
+          "required": true
+        },
+        {
+          "name": "target_uin",
+          "type": "integer",
+          "description": "说说所属 QQ 号，省略则为机器人自己",
+          "required": false
+        },
+        {
+          "name": "abstime",
+          "type": "integer",
+          "description": "说说发表时间（unix 秒），传真实值更可靠",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "list_filesets",
+      "category": "扩展",
+      "description": "列出当前账号的所有闪传文件集",
+      "risk": "risky",
+      "params": []
+    },
+    {
+      "name": "mark_group_msg_as_read",
+      "category": "扩展",
+      "description": "标记群消息已读",
+      "risk": "safe",
+      "params": [
+        {
+          "name": "message_id",
+          "type": "integer",
+          "description": "",
+          "required": true
+        },
+        {
+          "name": "group_id",
+          "type": "integer",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "mark_msg_as_read",
+      "category": "扩展",
+      "description": "标记消息已读（群聊/私聊自动路由）",
+      "risk": "safe",
+      "params": [
+        {
+          "name": "message_id",
+          "type": "integer",
+          "description": "",
+          "required": true
+        },
+        {
+          "name": "target_id",
+          "type": "integer",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "mark_private_msg_as_read",
+      "category": "扩展",
+      "description": "标记私聊消息已读",
+      "risk": "safe",
+      "params": [
+        {
+          "name": "message_id",
+          "type": "integer",
+          "description": "",
+          "required": true
+        },
+        {
+          "name": "user_id",
+          "type": "integer",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "modify_custom_face",
+      "category": "扩展",
+      "description": "修改收藏表情备注",
+      "risk": "risky",
+      "params": [
+        {
+          "name": "emoji_id",
+          "type": "string",
+          "description": "",
+          "required": true
+        },
+        {
+          "name": "desc",
+          "type": "string",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "move_custom_face_to_front",
+      "category": "扩展",
+      "description": "收藏表情移到最前",
+      "risk": "risky",
+      "params": [
+        {
+          "name": "emoji_id",
+          "type": "string",
+          "description": "",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "move_group_file",
+      "category": "群文件",
+      "description": "移动群文件",
+      "risk": "risky",
+      "params": [
+        {
+          "name": "group_id",
+          "type": "integer",
+          "description": "群号",
+          "required": true
+        },
+        {
+          "name": "file_id",
+          "type": "string",
+          "description": "",
+          "required": true
+        },
+        {
+          "name": "parent_directory",
+          "type": "string",
+          "description": "",
+          "required": true
+        },
+        {
+          "name": "target_directory",
+          "type": "string",
+          "description": "",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "nc_get_packet_status",
+      "category": "扩展",
+      "description": "获取 packet 状态（占位）",
+      "risk": "forbidden",
+      "params": []
+    },
+    {
+      "name": "nc_get_user_status",
+      "category": "扩展",
+      "description": "获取用户在线/扩展状态",
+      "risk": "safe",
+      "params": [
+        {
+          "name": "user_id",
+          "type": "integer",
+          "description": "",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "ocr_image",
+      "category": "扩展",
+      "description": "OCR 图片（服务端，需图片 URL 或已缓存的图片 file_id）",
+      "risk": "safe",
+      "params": [
+        {
+          "name": "image",
+          "type": "string",
+          "description": "",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "rename_flash_file",
+      "category": "扩展",
+      "description": "重命名闪传文件",
+      "risk": "risky",
+      "params": [
+        {
+          "name": "fileset_id",
+          "type": "string",
+          "description": "",
+          "required": true
+        },
+        {
+          "name": "new_name",
+          "type": "string",
+          "description": "",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "rename_group_file",
+      "category": "群文件",
+      "description": "重命名群文件",
+      "risk": "risky",
+      "params": [
+        {
+          "name": "group_id",
+          "type": "integer",
+          "description": "群号",
+          "required": true
+        },
+        {
+          "name": "file_id",
+          "type": "string",
+          "description": "",
+          "required": true
+        },
+        {
+          "name": "current_parent_directory",
+          "type": "string",
+          "description": "",
+          "required": false
+        },
+        {
+          "name": "new_name",
+          "type": "string",
+          "description": "",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "rename_group_file_folder",
+      "category": "群文件",
+      "description": "重命名群文件夹",
+      "risk": "risky",
+      "params": [
+        {
+          "name": "group_id",
+          "type": "integer",
+          "description": "群号",
+          "required": true
+        },
+        {
+          "name": "folder_id",
+          "type": "string",
+          "description": "",
+          "required": true
+        },
+        {
+          "name": "new_folder_name",
+          "type": "string",
+          "description": "",
+          "required": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "request_decrypt_key",
+      "category": "扩展",
+      "description": "请求数据库解密密钥",
+      "risk": "forbidden",
+      "params": [
+        {
+          "name": "db_path",
+          "type": "string",
+          "description": "",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "search_sys_faces",
+      "category": "系统表情",
+      "description": "搜索 QQ 系统表情",
+      "risk": "safe",
+      "params": [
+        {
+          "name": "query",
+          "type": "string",
+          "description": "编号、名称、别名或分组名",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "send_ark_share",
+      "category": "扩展",
+      "description": "分享用户/群 Ark 卡片（NapCat 标准名）",
+      "risk": "safe",
+      "params": [
+        {
+          "name": "user_id",
+          "type": "integer",
+          "description": "",
+          "required": false
+        },
+        {
+          "name": "group_id",
+          "type": "integer",
+          "description": "",
+          "required": false
+        },
+        {
+          "name": "phone_number",
+          "type": "string",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "send_custom_face",
+      "category": "消息",
+      "description": "发送账号收藏表情（emoji_id 或 MD5），保留表情显示样式",
+      "risk": "safe",
+      "params": [
+        {
+          "name": "emoji_id",
+          "type": "string",
+          "description": "当前账号收藏表情的完整 ID 或 32 位 MD5",
+          "required": true
+        },
+        {
+          "name": "group_id",
+          "type": "integer",
+          "description": "目标群号；与 user_id 二选一",
+          "required": false
+        },
+        {
+          "name": "user_id",
+          "type": "integer",
+          "description": "目标 QQ 号；与 group_id 二选一",
+          "required": false
+        },
+        {
+          "name": "reply_to",
+          "type": "integer",
+          "description": "可选回复消息 ID",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "send_flash_msg",
+      "category": "扩展",
+      "description": "发送闪传消息（私聊或群聊，引用 fileset_id 让对端下载）",
+      "risk": "risky",
+      "params": [
+        {
+          "name": "fileset_id",
+          "type": "string",
+          "description": "",
+          "required": true
+        },
+        {
+          "name": "user_id",
+          "type": "integer",
+          "description": "",
+          "required": false
+        },
+        {
+          "name": "group_id",
+          "type": "integer",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "send_forward_msg",
+      "category": "扩展",
+      "description": "发送合并转发（按 message_type/群号自动路由）",
+      "risk": "safe",
+      "params": [
+        {
+          "name": "messages",
+          "type": "string",
+          "description": "OneBot message: string | segment[] | object. In segment arrays, text segments whose text field is exactly \"\" are compatibility placeholders and do not count as sendable segments; missing, null, and whitespace-only text remain subject to normal validation.",
+          "required": false
+        },
+        {
+          "name": "message",
+          "type": "string",
+          "description": "OneBot message: string | segment[] | object. In segment arrays, text segments whose text field is exactly \"\" are compatibility placeholders and do not count as sendable segments; missing, null, and whitespace-only text remain subject to normal validation.",
+          "required": false
+        },
+        {
+          "name": "message_type",
+          "type": "string",
+          "description": "",
+          "required": false
+        },
+        {
+          "name": "group_id",
+          "type": "integer",
+          "description": "",
+          "required": false
+        },
+        {
+          "name": "user_id",
+          "type": "integer",
+          "description": "",
+          "required": false
+        },
+        {
+          "name": "source",
+          "type": "string",
+          "description": "",
+          "required": false
+        },
+        {
+          "name": "summary",
+          "type": "string",
+          "description": "",
+          "required": false
+        },
+        {
+          "name": "prompt",
+          "type": "string",
+          "description": "",
+          "required": false
+        },
+        {
+          "name": "news",
+          "type": "string",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "send_group_ai_record",
+      "category": "扩展",
+      "description": "发送 AI 语音到群",
+      "risk": "risky",
+      "params": [
+        {
+          "name": "group_id",
+          "type": "integer",
+          "description": "群号",
+          "required": true
+        },
+        {
+          "name": "character",
+          "type": "string",
+          "description": "",
+          "required": true
+        },
+        {
+          "name": "text",
+          "type": "string",
+          "description": "",
+          "required": true
+        },
+        {
+          "name": "chat_type",
+          "type": "integer",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "send_group_ark_share",
+      "category": "扩展",
+      "description": "分享群 Ark 卡片（NapCat 标准名）",
+      "risk": "safe",
+      "params": [
+        {
+          "name": "group_id",
+          "type": "integer",
+          "description": "",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "send_group_forward_msg",
+      "category": "扩展",
+      "description": "发送群合并转发",
+      "risk": "safe",
+      "params": [
+        {
+          "name": "group_id",
+          "type": "integer",
+          "description": "群号",
+          "required": true
+        },
+        {
+          "name": "messages",
+          "type": "string",
+          "description": "OneBot message: string | segment[] | object. In segment arrays, text segments whose text field is exactly \"\" are compatibility placeholders and do not count as sendable segments; missing, null, and whitespace-only text remain subject to normal validation.",
+          "required": false
+        },
+        {
+          "name": "message",
+          "type": "string",
+          "description": "OneBot message: string | segment[] | object. In segment arrays, text segments whose text field is exactly \"\" are compatibility placeholders and do not count as sendable segments; missing, null, and whitespace-only text remain subject to normal validation.",
+          "required": false
+        },
+        {
+          "name": "source",
+          "type": "string",
+          "description": "",
+          "required": false
+        },
+        {
+          "name": "summary",
+          "type": "string",
+          "description": "",
+          "required": false
+        },
+        {
+          "name": "prompt",
+          "type": "string",
+          "description": "",
+          "required": false
+        },
+        {
+          "name": "news",
+          "type": "string",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "send_group_msg",
+      "category": "消息",
+      "description": "发送群消息",
+      "risk": "safe",
+      "params": [
+        {
+          "name": "group_id",
+          "type": "integer",
+          "description": "群号",
+          "required": true
+        },
+        {
+          "name": "message",
+          "type": "string",
+          "description": "OneBot message: string | segment[] | object. In segment arrays, text segments whose text field is exactly \"\" are compatibility placeholders and do not count as sendable segments; missing, null, and whitespace-only text remain subject to normal validation.",
+          "required": true
+        },
+        {
+          "name": "auto_escape",
+          "type": "boolean",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "send_like",
+      "category": "扩展",
+      "description": "点赞",
+      "risk": "risky",
+      "params": [
+        {
+          "name": "user_id",
+          "type": "integer",
+          "description": "",
+          "required": true
+        },
+        {
+          "name": "times",
+          "type": "integer",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "send_msg",
+      "category": "消息",
+      "description": "发送消息（按 message_type/群号 自动路由群聊或私聊）",
+      "risk": "safe",
+      "params": [
+        {
+          "name": "message",
+          "type": "string",
+          "description": "OneBot message: string | segment[] | object. In segment arrays, text segments whose text field is exactly \"\" are compatibility placeholders and do not count as sendable segments; missing, null, and whitespace-only text remain subject to normal validation.",
+          "required": true
+        },
+        {
+          "name": "message_type",
+          "type": "string",
+          "description": "",
+          "required": false
+        },
+        {
+          "name": "group_id",
+          "type": "integer",
+          "description": "",
+          "required": false
+        },
+        {
+          "name": "user_id",
+          "type": "integer",
+          "description": "",
+          "required": false
+        },
+        {
+          "name": "auto_escape",
+          "type": "boolean",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "send_packet",
+      "category": "扩展",
+      "description": "发送原始 SSO 包（cmd + hex data）",
+      "risk": "forbidden",
+      "params": [
+        {
+          "name": "cmd",
+          "type": "string",
+          "description": "",
+          "required": true
+        },
+        {
+          "name": "data",
+          "type": "string",
+          "description": "",
+          "required": false
+        },
+        {
+          "name": "rsp",
+          "type": "boolean",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "send_poke",
+      "category": "扩展",
+      "description": "拍一拍（群聊/私聊自动路由）",
+      "risk": "risky",
+      "params": [
+        {
+          "name": "user_id",
+          "type": "integer",
+          "description": "",
+          "required": true
+        },
+        {
+          "name": "group_id",
+          "type": "integer",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "send_private_forward_msg",
+      "category": "扩展",
+      "description": "发送私聊合并转发",
+      "risk": "safe",
+      "params": [
+        {
+          "name": "user_id",
+          "type": "integer",
+          "description": "",
+          "required": true
+        },
+        {
+          "name": "messages",
+          "type": "string",
+          "description": "OneBot message: string | segment[] | object. In segment arrays, text segments whose text field is exactly \"\" are compatibility placeholders and do not count as sendable segments; missing, null, and whitespace-only text remain subject to normal validation.",
+          "required": false
+        },
+        {
+          "name": "message",
+          "type": "string",
+          "description": "OneBot message: string | segment[] | object. In segment arrays, text segments whose text field is exactly \"\" are compatibility placeholders and do not count as sendable segments; missing, null, and whitespace-only text remain subject to normal validation.",
+          "required": false
+        },
+        {
+          "name": "source",
+          "type": "string",
+          "description": "",
+          "required": false
+        },
+        {
+          "name": "summary",
+          "type": "string",
+          "description": "",
+          "required": false
+        },
+        {
+          "name": "prompt",
+          "type": "string",
+          "description": "",
+          "required": false
+        },
+        {
+          "name": "news",
+          "type": "string",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "send_private_msg",
+      "category": "消息",
+      "description": "发送私聊消息",
+      "risk": "safe",
+      "params": [
+        {
+          "name": "user_id",
+          "type": "integer",
+          "description": "",
+          "required": true
+        },
+        {
+          "name": "message",
+          "type": "string",
+          "description": "OneBot message: string | segment[] | object. In segment arrays, text segments whose text field is exactly \"\" are compatibility placeholders and do not count as sendable segments; missing, null, and whitespace-only text remain subject to normal validation.",
+          "required": true
+        },
+        {
+          "name": "group_id",
+          "type": "integer",
+          "description": "",
+          "required": false
+        },
+        {
+          "name": "auto_escape",
+          "type": "boolean",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "send_qzone_msg",
+      "category": "空间",
+      "description": "发表说说（QQ 空间，支持纯文字或带图；传 images 自动上传；可设置查看权限）",
+      "risk": "risky",
+      "params": [
+        {
+          "name": "content",
+          "type": "string",
+          "description": "说说正文",
+          "required": true
+        },
+        {
+          "name": "images",
+          "type": "array",
+          "description": "图片数组（可选），支持 file:// http:// base64://；自动上传",
+          "required": false
+        },
+        {
+          "name": "ugc_right",
+          "type": "integer",
+          "description": "查看权限：1=所有人可见，4=好友可见，16=部分好友可见，64=仅自己可见，128=部分好友不可见",
+          "required": false
+        },
+        {
+          "name": "target_uins",
+          "type": "array",
+          "description": "权限作用 QQ 号数组；ugc_right=16 时表示可见名单，128 时表示不可见名单",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "send_tuwen_ark",
+      "category": "扩展",
+      "description": "发送图文 Ark 卡片（私聊/群聊）",
+      "risk": "safe",
+      "params": [
+        {
+          "name": "user_id",
+          "type": "integer",
+          "description": "",
+          "required": false
+        },
+        {
+          "name": "group_id",
+          "type": "integer",
+          "description": "",
+          "required": false
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "description": "",
+          "required": true
+        },
+        {
+          "name": "desc",
+          "type": "string",
+          "description": "",
+          "required": true
+        },
+        {
+          "name": "summary",
+          "type": "string",
+          "description": "",
+          "required": false
+        },
+        {
+          "name": "preview_url",
+          "type": "string",
+          "description": "",
+          "required": false
+        },
+        {
+          "name": "jump_url",
+          "type": "string",
+          "description": "",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "set_diy_online_status",
+      "category": "扩展",
+      "description": "设置自定义在线状态",
+      "risk": "risky",
+      "params": [
+        {
+          "name": "face_id",
+          "type": "integer",
+          "description": "",
+          "required": true
+        },
+        {
+          "name": "face_type",
+          "type": "integer",
+          "description": "",
+          "required": false
+        },
+        {
+          "name": "wording",
+          "type": "string",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "set_doubt_friends_add_request",
+      "category": "扩展",
+      "description": "处理可疑好友申请",
+      "risk": "risky",
+      "params": [
+        {
+          "name": "flag",
+          "type": "string",
+          "description": "",
+          "required": true
+        },
+        {
+          "name": "approve",
+          "type": "boolean",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "set_essence_msg",
+      "category": "扩展",
+      "description": "设置精华消息",
+      "risk": "risky",
+      "params": [
+        {
+          "name": "message_id",
+          "type": "integer",
+          "description": "",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "set_friend_add_request",
+      "category": "请求",
+      "description": "处理好友添加请求",
+      "risk": "risky",
+      "params": [
+        {
+          "name": "flag",
+          "type": "string",
+          "description": "",
+          "required": true
+        },
+        {
+          "name": "approve",
+          "type": "boolean",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "set_friend_remark",
+      "category": "扩展",
+      "description": "设置好友备注",
+      "risk": "risky",
+      "params": [
+        {
+          "name": "user_id",
+          "type": "integer",
+          "description": "",
+          "required": true
+        },
+        {
+          "name": "remark",
+          "type": "string",
+          "description": "",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "set_friends_category",
+      "category": "扩展",
+      "description": "移动好友到指定分组",
+      "risk": "risky",
+      "params": [
+        {
+          "name": "uin",
+          "type": "integer",
+          "description": "要移动的好友 QQ 号",
+          "required": true
+        },
+        {
+          "name": "categoryId",
+          "type": "integer",
+          "description": "目标分组 ID",
+          "required": false
+        },
+        {
+          "name": "categoryName",
+          "type": "string",
+          "description": "目标分组名称（必须唯一且完全匹配）",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "set_group_add_option",
+      "category": "群管理",
+      "description": "设置加群选项",
+      "risk": "risky",
+      "params": [
+        {
+          "name": "group_id",
+          "type": "integer",
+          "description": "群号",
+          "required": true
+        },
+        {
+          "name": "add_type",
+          "type": "integer",
+          "description": "",
+          "required": false
+        },
+        {
+          "name": "group_question",
+          "type": "string",
+          "description": "",
+          "required": false
+        },
+        {
+          "name": "group_answer",
+          "type": "string",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "set_group_add_request",
+      "category": "请求",
+      "description": "处理加群请求",
+      "risk": "risky",
+      "params": [
+        {
+          "name": "flag",
+          "type": "string",
+          "description": "",
+          "required": true
+        },
+        {
+          "name": "sub_type",
+          "type": "string",
+          "description": "",
+          "required": false
+        },
+        {
+          "name": "type",
+          "type": "string",
+          "description": "",
+          "required": false
+        },
+        {
+          "name": "approve",
+          "type": "boolean",
+          "description": "",
+          "required": false
+        },
+        {
+          "name": "reason",
+          "type": "string",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "set_group_admin",
+      "category": "群管理",
+      "description": "设置/取消管理员",
+      "risk": "risky",
+      "params": [
+        {
+          "name": "group_id",
+          "type": "integer",
+          "description": "群号",
+          "required": true
+        },
+        {
+          "name": "user_id",
+          "type": "integer",
+          "description": "QQ 号",
+          "required": true
+        },
+        {
+          "name": "enable",
+          "type": "boolean",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "set_group_album_media_like",
+      "category": "群相册",
+      "description": "set_group_album_media_like",
+      "risk": "risky",
+      "params": [
+        {
+          "name": "group_id",
+          "type": "integer",
+          "description": "群号",
+          "required": true
+        },
+        {
+          "name": "album_id",
+          "type": "string",
+          "description": "",
+          "required": true
+        },
+        {
+          "name": "batch_id",
+          "type": "string",
+          "description": "",
+          "required": true
+        },
+        {
+          "name": "lloc",
+          "type": "string",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "set_group_anonymous",
+      "category": "群管理",
+      "description": "匿名开关（未实现，返回 ok）",
+      "risk": "risky",
+      "params": []
+    },
+    {
+      "name": "set_group_anonymous_ban",
+      "category": "群管理",
+      "description": "匿名禁言（未实现，返回 ok）",
+      "risk": "risky",
+      "params": []
+    },
+    {
+      "name": "set_group_ban",
+      "category": "群管理",
+      "description": "禁言群成员（duration=0 解除）",
+      "risk": "risky",
+      "params": [
+        {
+          "name": "group_id",
+          "type": "integer",
+          "description": "群号",
+          "required": true
+        },
+        {
+          "name": "user_id",
+          "type": "integer",
+          "description": "QQ 号",
+          "required": true
+        },
+        {
+          "name": "duration",
+          "type": "integer",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "set_group_card",
+      "category": "群管理",
+      "description": "设置群名片（空字符串清除）",
+      "risk": "risky",
+      "params": [
+        {
+          "name": "group_id",
+          "type": "integer",
+          "description": "群号",
+          "required": true
+        },
+        {
+          "name": "user_id",
+          "type": "integer",
+          "description": "QQ 号",
+          "required": true
+        },
+        {
+          "name": "card",
+          "type": "string",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "set_group_kick",
+      "category": "群管理",
+      "description": "踢出群成员",
+      "risk": "risky",
+      "params": [
+        {
+          "name": "group_id",
+          "type": "integer",
+          "description": "群号",
+          "required": true
+        },
+        {
+          "name": "user_id",
+          "type": "integer",
+          "description": "QQ 号",
+          "required": true
+        },
+        {
+          "name": "reject_add_request",
+          "type": "boolean",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "set_group_kick_members",
+      "category": "群管理",
+      "description": "批量踢出群成员",
+      "risk": "risky",
+      "params": [
+        {
+          "name": "group_id",
+          "type": "integer",
+          "description": "群号",
+          "required": true
+        },
+        {
+          "name": "user_id",
+          "type": "array",
+          "description": "",
+          "required": true
+        },
+        {
+          "name": "reject_add_request",
+          "type": "boolean",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "set_group_leave",
+      "category": "群管理",
+      "description": "退群",
+      "risk": "risky",
+      "params": [
+        {
+          "name": "group_id",
+          "type": "integer",
+          "description": "群号",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "set_group_member_invite_policy",
+      "category": "群管理",
+      "description": "设置群成员邀请策略",
+      "risk": "risky",
+      "params": [
+        {
+          "name": "group_id",
+          "type": "integer",
+          "description": "群号",
+          "required": true
+        },
+        {
+          "name": "policy",
+          "type": "string",
+          "description": "",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "set_group_member_permissions",
+      "category": "群管理",
+      "description": "设置群成员权限（仅群主可改）",
+      "risk": "risky",
+      "params": [
+        {
+          "name": "group_id",
+          "type": "integer",
+          "description": "群号",
+          "required": true
+        },
+        {
+          "name": "allow_member_upload_album",
+          "type": "boolean",
+          "description": "",
+          "required": false
+        },
+        {
+          "name": "allow_member_temporary_session",
+          "type": "boolean",
+          "description": "",
+          "required": false
+        },
+        {
+          "name": "allow_member_create_group",
+          "type": "boolean",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "set_group_name",
+      "category": "群管理",
+      "description": "设置群名",
+      "risk": "risky",
+      "params": [
+        {
+          "name": "group_id",
+          "type": "integer",
+          "description": "群号",
+          "required": true
+        },
+        {
+          "name": "group_name",
+          "type": "string",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "set_group_new_member_history_visibility",
+      "category": "群管理",
+      "description": "设置新成员是否可查看历史消息",
+      "risk": "risky",
+      "params": [
+        {
+          "name": "group_id",
+          "type": "integer",
+          "description": "群号",
+          "required": true
+        },
+        {
+          "name": "visible",
+          "type": "boolean",
+          "description": "",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "set_group_portrait",
+      "category": "群管理",
+      "description": "设置群头像",
+      "risk": "risky",
+      "params": [
+        {
+          "name": "group_id",
+          "type": "integer",
+          "description": "群号",
+          "required": true
+        },
+        {
+          "name": "file",
+          "type": "string",
+          "description": "",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "set_group_reaction",
+      "category": "扩展",
+      "description": "群聊表情回应",
+      "risk": "risky",
+      "params": [
+        {
+          "name": "group_id",
+          "type": "integer",
+          "description": "",
+          "required": false
+        },
+        {
+          "name": "message_id",
+          "type": "integer",
+          "description": "",
+          "required": true
+        },
+        {
+          "name": "code",
+          "type": "string",
+          "description": "",
+          "required": true
+        },
+        {
+          "name": "is_set",
+          "type": "boolean",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "set_group_remark",
+      "category": "扩展",
+      "description": "设置群备注",
+      "risk": "risky",
+      "params": [
+        {
+          "name": "group_id",
+          "type": "integer",
+          "description": "",
+          "required": true
+        },
+        {
+          "name": "remark",
+          "type": "string",
+          "description": "",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "set_group_robot_add_option",
+      "category": "扩展",
+      "description": "设置群机器人加群选项",
+      "risk": "risky",
+      "params": [
+        {
+          "name": "group_id",
+          "type": "integer",
+          "description": "群号",
+          "required": true
+        },
+        {
+          "name": "robot_member_switch",
+          "type": "integer",
+          "description": "",
+          "required": false
+        },
+        {
+          "name": "robot_member_examine",
+          "type": "integer",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "set_group_search",
+      "category": "群管理",
+      "description": "设置群被搜索方式（群指纹 / 群号搜索开关）",
+      "risk": "risky",
+      "params": [
+        {
+          "name": "group_id",
+          "type": "integer",
+          "description": "群号",
+          "required": true
+        },
+        {
+          "name": "no_finger_open",
+          "type": "integer",
+          "description": "",
+          "required": false
+        },
+        {
+          "name": "no_code_finger_open",
+          "type": "integer",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "set_group_sign",
+      "category": "扩展",
+      "description": "群签到",
+      "risk": "risky",
+      "params": [
+        {
+          "name": "group_id",
+          "type": "integer",
+          "description": "群号",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "set_group_special_title",
+      "category": "群管理",
+      "description": "设置群头衔",
+      "risk": "risky",
+      "params": [
+        {
+          "name": "group_id",
+          "type": "integer",
+          "description": "群号",
+          "required": true
+        },
+        {
+          "name": "user_id",
+          "type": "integer",
+          "description": "QQ 号",
+          "required": true
+        },
+        {
+          "name": "special_title",
+          "type": "string",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "set_group_todo",
+      "category": "扩展",
+      "description": "设置群待办",
+      "risk": "risky",
+      "params": [
+        {
+          "name": "group_id",
+          "type": "integer",
+          "description": "群号",
+          "required": true
+        },
+        {
+          "name": "message_id",
+          "type": "integer",
+          "description": "",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "set_group_whole_ban",
+      "category": "群管理",
+      "description": "全员禁言开关",
+      "risk": "risky",
+      "params": [
+        {
+          "name": "group_id",
+          "type": "integer",
+          "description": "群号",
+          "required": true
+        },
+        {
+          "name": "enable",
+          "type": "boolean",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "set_input_status",
+      "category": "扩展",
+      "description": "设置输入状态",
+      "risk": "risky",
+      "params": [
+        {
+          "name": "user_id",
+          "type": "integer",
+          "description": "",
+          "required": true
+        },
+        {
+          "name": "event_type",
+          "type": "integer",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "set_msg_emoji_like",
+      "category": "扩展",
+      "description": "设置消息表情回应",
+      "risk": "risky",
+      "params": [
+        {
+          "name": "message_id",
+          "type": "integer",
+          "description": "",
+          "required": true
+        },
+        {
+          "name": "emoji_id",
+          "type": "string",
+          "description": "",
+          "required": true
+        },
+        {
+          "name": "set",
+          "type": "boolean",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "set_online_status",
+      "category": "扩展",
+      "description": "设置在线状态",
+      "risk": "risky",
+      "params": [
+        {
+          "name": "status",
+          "type": "integer",
+          "description": "",
+          "required": true
+        },
+        {
+          "name": "ext_status",
+          "type": "integer",
+          "description": "",
+          "required": false
+        },
+        {
+          "name": "battery_status",
+          "type": "integer",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "set_qq_avatar",
+      "category": "扩展",
+      "description": "设置 QQ 头像",
+      "risk": "risky",
+      "params": [
+        {
+          "name": "file",
+          "type": "string",
+          "description": "",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "set_qq_profile",
+      "category": "扩展",
+      "description": "设置 QQ 资料",
+      "risk": "risky",
+      "params": [
+        {
+          "name": "nickname",
+          "type": "string",
+          "description": "",
+          "required": false
+        },
+        {
+          "name": "personal_note",
+          "type": "string",
+          "description": "",
+          "required": false
+        },
+        {
+          "name": "sex",
+          "type": "integer",
+          "description": "0 未知，1 男，2 女",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "set_qzone_ban",
+      "category": "空间",
+      "description": "拉黑或解除拉黑某人（修改机器人自身 QQ 空间黑名单；enable=true 拉黑，false 解除）",
+      "risk": "risky",
+      "params": [
+        {
+          "name": "user_id",
+          "type": "integer",
+          "description": "目标 QQ 号",
+          "required": true
+        },
+        {
+          "name": "enable",
+          "type": "boolean",
+          "description": "true 拉黑，false 解除拉黑",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "set_qzone_msg_right",
+      "category": "空间",
+      "description": "修改一条已发说说的查看权限（QQ 空间，按 tid）",
+      "risk": "risky",
+      "params": [
+        {
+          "name": "tid",
+          "type": "string",
+          "description": "说说 tid（来自 get_qzone_msg_list / send_qzone_msg）",
+          "required": true
+        },
+        {
+          "name": "ugc_right",
+          "type": "integer",
+          "description": "查看权限：1=所有人可见，4=好友可见，16=部分好友可见，64=仅自己可见，128=部分好友不可见",
+          "required": true
+        },
+        {
+          "name": "target_uins",
+          "type": "array",
+          "description": "权限作用 QQ 号数组；ugc_right=16 时表示可见名单，128 时表示不可见名单",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "set_restart",
+      "category": "扩展",
+      "description": "重启（不支持）",
+      "risk": "forbidden",
+      "params": []
+    },
+    {
+      "name": "set_self_longnick",
+      "category": "扩展",
+      "description": "设置个性签名（longNick/long_nick，严格 string）",
+      "risk": "risky",
+      "params": [
+        {
+          "name": "longNick",
+          "type": "string",
+          "description": "",
+          "required": false
+        },
+        {
+          "name": "long_nick",
+          "type": "string",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "share_group_ex",
+      "category": "扩展",
+      "description": "分享群 Ark 卡片",
+      "risk": "safe",
+      "params": [
+        {
+          "name": "group_id",
+          "type": "integer",
+          "description": "",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "share_peer",
+      "category": "扩展",
+      "description": "分享用户/群 Ark 卡片",
+      "risk": "safe",
+      "params": [
+        {
+          "name": "user_id",
+          "type": "integer",
+          "description": "",
+          "required": false
+        },
+        {
+          "name": "group_id",
+          "type": "integer",
+          "description": "",
+          "required": false
+        },
+        {
+          "name": "phone_number",
+          "type": "string",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "test_download_stream",
+      "category": "流式接口",
+      "description": "测试下载流(推送 10 个数据帧,验证流式传输,不触达 QQ)",
+      "risk": "risky",
+      "params": [
+        {
+          "name": "error",
+          "type": "boolean",
+          "description": "是否触发测试错误",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "trans_group_file",
+      "category": "扩展",
+      "description": "转存群文件",
+      "risk": "risky",
+      "params": [
+        {
+          "name": "group_id",
+          "type": "integer",
+          "description": "",
+          "required": true
+        },
+        {
+          "name": "file_id",
+          "type": "string",
+          "description": "",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "translate_en2zh",
+      "category": "扩展",
+      "description": "英译中",
+      "risk": "safe",
+      "params": [
+        {
+          "name": "words",
+          "type": "array",
+          "description": "",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "unlike_qzone",
+      "category": "空间",
+      "description": "取消对一条说说的点赞（QQ 空间；取消赞端点待真机核实）",
+      "risk": "risky",
+      "params": [
+        {
+          "name": "tid",
+          "type": "string",
+          "description": "说说 tid",
+          "required": true
+        },
+        {
+          "name": "target_uin",
+          "type": "integer",
+          "description": "说说所属 QQ 号，省略则为机器人自己",
+          "required": false
+        },
+        {
+          "name": "abstime",
+          "type": "integer",
+          "description": "说说发表时间（unix 秒），传真实值更可靠",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "upload_file_stream",
+      "category": "流式接口",
+      "description": "以流式分块方式上传文件到机器人本地(返回可用于发送的本地路径)",
+      "risk": "risky",
+      "params": [
+        {
+          "name": "stream_id",
+          "type": "string",
+          "description": "流 ID(客户端生成的 UUID,限 [A-Za-z0-9_-])",
+          "required": true
+        },
+        {
+          "name": "chunk_data",
+          "type": "string",
+          "description": "分块数据(Base64)",
+          "required": false
+        },
+        {
+          "name": "chunk_index",
+          "type": "integer",
+          "description": "分块索引(从 0 开始)",
+          "required": false
+        },
+        {
+          "name": "total_chunks",
+          "type": "integer",
+          "description": "总分块数(新流必填)",
+          "required": false
+        },
+        {
+          "name": "file_size",
+          "type": "integer",
+          "description": "文件总大小(字节)",
+          "required": false
+        },
+        {
+          "name": "expected_sha256",
+          "type": "string",
+          "description": "期望的整文件 SHA256(校验)",
+          "required": false
+        },
+        {
+          "name": "is_complete",
+          "type": "boolean",
+          "description": "是否为最后一个分块/触发合并",
+          "required": false
+        },
+        {
+          "name": "filename",
+          "type": "string",
+          "description": "文件名",
+          "required": false
+        },
+        {
+          "name": "reset",
+          "type": "boolean",
+          "description": "重置并丢弃该流",
+          "required": false
+        },
+        {
+          "name": "verify_only",
+          "type": "boolean",
+          "description": "仅查询当前流状态",
+          "required": false
+        },
+        {
+          "name": "file_retention",
+          "type": "integer",
+          "description": "合并文件保留毫秒(0=不回收)",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "upload_forward_msg",
+      "category": "扩展",
+      "description": "上传转发消息",
+      "risk": "risky",
+      "params": [
+        {
+          "name": "messages",
+          "type": "string",
+          "description": "OneBot message: string | segment[] | object. In segment arrays, text segments whose text field is exactly \"\" are compatibility placeholders and do not count as sendable segments; missing, null, and whitespace-only text remain subject to normal validation.",
+          "required": false
+        },
+        {
+          "name": "message",
+          "type": "string",
+          "description": "OneBot message: string | segment[] | object. In segment arrays, text segments whose text field is exactly \"\" are compatibility placeholders and do not count as sendable segments; missing, null, and whitespace-only text remain subject to normal validation.",
+          "required": false
+        },
+        {
+          "name": "group_id",
+          "type": "integer",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "upload_foward_msg",
+      "category": "扩展",
+      "description": "上传转发消息（别名拼写）",
+      "risk": "risky",
+      "params": [
+        {
+          "name": "messages",
+          "type": "string",
+          "description": "OneBot message: string | segment[] | object. In segment arrays, text segments whose text field is exactly \"\" are compatibility placeholders and do not count as sendable segments; missing, null, and whitespace-only text remain subject to normal validation.",
+          "required": false
+        },
+        {
+          "name": "message",
+          "type": "string",
+          "description": "OneBot message: string | segment[] | object. In segment arrays, text segments whose text field is exactly \"\" are compatibility placeholders and do not count as sendable segments; missing, null, and whitespace-only text remain subject to normal validation.",
+          "required": false
+        },
+        {
+          "name": "group_id",
+          "type": "integer",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "upload_group_file",
+      "category": "群文件",
+      "description": "上传群文件",
+      "risk": "risky",
+      "params": [
+        {
+          "name": "group_id",
+          "type": "integer",
+          "description": "群号",
+          "required": true
+        },
+        {
+          "name": "file",
+          "type": "string",
+          "description": "",
+          "required": true
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "required": false
+        },
+        {
+          "name": "folder",
+          "type": "string",
+          "description": "",
+          "required": false
+        },
+        {
+          "name": "folder_id",
+          "type": "string",
+          "description": "",
+          "required": false
+        },
+        {
+          "name": "upload_file",
+          "type": "boolean",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "upload_image_to_qun_album",
+      "category": "群相册",
+      "description": "upload_image_to_qun_album",
+      "risk": "risky",
+      "params": [
+        {
+          "name": "group_id",
+          "type": "integer",
+          "description": "群号",
+          "required": true
+        },
+        {
+          "name": "album_id",
+          "type": "string",
+          "description": "",
+          "required": true
+        },
+        {
+          "name": "album_name",
+          "type": "string",
+          "description": "",
+          "required": true
+        },
+        {
+          "name": "file",
+          "type": "string",
+          "description": "",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "upload_private_file",
+      "category": "群文件",
+      "description": "上传私聊文件",
+      "risk": "risky",
+      "params": [
+        {
+          "name": "user_id",
+          "type": "integer",
+          "description": "",
+          "required": true
+        },
+        {
+          "name": "file",
+          "type": "string",
+          "description": "",
+          "required": true
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "required": false
+        },
+        {
+          "name": "upload_file",
+          "type": "boolean",
+          "description": "",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "upload_video_to_qun_album",
+      "category": "群相册",
+      "description": "上传视频到群相册",
+      "risk": "risky",
+      "params": [
+        {
+          "name": "group_id",
+          "type": "integer",
+          "description": "群号",
+          "required": true
+        },
+        {
+          "name": "album_id",
+          "type": "string",
+          "description": "相册 id",
+          "required": true
+        },
+        {
+          "name": "album_name",
+          "type": "string",
+          "description": "相册名称",
+          "required": true
+        },
+        {
+          "name": "file",
+          "type": "string",
+          "description": "视频文件",
+          "required": true
+        }
+      ]
+    }
+  ]
+}
